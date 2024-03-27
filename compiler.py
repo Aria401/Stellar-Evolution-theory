@@ -1,5 +1,5 @@
 import json
-
+import random
 m = (
     0.2
     ,0.3
@@ -29,8 +29,23 @@ for starmass in m:
         Lum.pop(0)
         Mass.pop(0)
         Radius.pop(0)
+    if(starmass>=0.3):
+            Year.append(Year[-1]+1e9)
+            Tempeff.append(3000)
+            Lum.append(Lum[0]*150)
+            Mass.append(Mass[-1])
+            Radius.append(Radius[0]*40)
+            Tempcen.append(Tempcen[-1])
+    if(starmass>=0.3):
+            Year.append(Year[-1])
+            Tempeff.append(3000)
+            Lum.append(Lum[0]*150)
+            Mass.append(Mass[-1])
+            Radius.append(Radius[0]*40)
+            Tempcen.append(Tempcen[-1])
     for x in range(len(Year)):
         Year[x]-=Year[0]
+        
     NormalizedYear = [x/Year[-1] for x in Year]
     Data[starmass] = {'year':Year,'nyear':NormalizedYear,'tempeff':Tempeff,'tempcen':Tempcen, 'lum':Lum, 'mass': Mass, "radius": Radius}
 
