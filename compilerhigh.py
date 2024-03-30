@@ -1,6 +1,9 @@
 import json
 
 m = (
+    0.8,
+    0.9,
+    1,
     1.2
     ,1.4
     ,1.6
@@ -49,17 +52,16 @@ m = (
     ,50
     )
 Data = {}
-for starmass in m:
-    with open('data/'+str(int(10*starmass))+'.dat') as f:
-        splited = [line.split() for line in f][2:]
-        Year = [float(x[1]) for x in splited]
-        Tempeff = [10**float(x[4]) for x in splited]
-        Tempcen = [10**float(x[20]) for x in splited]
-        Lum = [10**float(x[3]) for x in splited]
-        Mass = [float(x[2]) for x in splited]
-        Radius = [float(x[44]) for x in splited]
+with open('data/10.dat') as f:
+    splited = [line.split() for line in f][2:]
+    Year = [float(x[1]) for x in splited]
+    Tempeff = [10**float(x[4]) for x in splited]
+    Tempcen = [10**float(x[20]) for x in splited]
+    Lum = [10**float(x[3]) for x in splited]
+    Mass = [float(x[2]) for x in splited]
+    Radius = [float(x[44]) for x in splited]
     NormalizedYear = [x/Year[-1] for x in Year]
-    Data[starmass] = {'year':Year,'nyear':NormalizedYear,'tempeff':Tempeff,'tempcen':Tempcen, 'lum':Lum, 'mass': Mass, "radius": Radius}
+    Data[1] = {'year':Year,'nyear':NormalizedYear,'tempeff':Tempeff,'tempcen':Tempcen, 'lum':Lum, 'mass': Mass, "radius": Radius}
 
 with open('outputs/high.json','w') as out:
     json.dump(Data,out,indent=4)

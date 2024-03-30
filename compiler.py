@@ -7,9 +7,6 @@ m = (
     ,0.5
     ,0.6
     ,0.7
-    ,0.8
-    ,0.9
-    ,1
 
     )
 Data = {}
@@ -39,9 +36,9 @@ for starmass in m:
     if(starmass>=0.3):
             Year.append(Year[-1])
             Tempeff.append(3000)
-            Lum.append(Lum[0]*150)
+            Lum.append(Lum[0]*30)
             Mass.append(Mass[-1])
-            Radius.append(Radius[0]*40)
+            Radius.append(Radius[0]*20)
             Tempcen.append(Tempcen[-1])
     for x in range(len(Year)):
         Year[x]-=Year[0]
