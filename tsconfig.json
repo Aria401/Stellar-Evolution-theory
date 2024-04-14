@@ -6,6 +6,6 @@
         // "allowJs": true,
         "target": "ES2020"
     },
-    "moduleResolution":"node",
+    "moduleResolution":"nodenext",
     "exclude": ["../api"]
 }
